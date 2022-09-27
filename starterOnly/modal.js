@@ -27,14 +27,16 @@ function launchModal() {
  * Close modal function & reset form
  */
 const closeModal = () => {
-  form.reset()
+  const error = form.querySelectorAll(".formData[data-error]");
+  if(error.length === 0) {
+    form.reset();
+  }
   modalbg.style.display = "none"
   const confirmMessage = document.querySelector(".modal-body .confirm-message");
   if (confirmMessage) {
     confirmMessage.remove();
     form.style.display = "block";
   }
-
 };
 
 /**
